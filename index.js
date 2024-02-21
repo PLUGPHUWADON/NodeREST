@@ -3,19 +3,17 @@
 // Run this file with node SequlizeSQLiteCRUDBook.js
 // Test with Postman
 
-const express = require('express');
-const Sequelize = require('sequelize');
+const express = require("express");
+const Sequelize = require("sequelize");
 const app = express();
-
 // parse incoming requests
 app.use(express.json());
 
+// set db url
+const dbUrl = 'postgres://webadmin:BXNxiq80565@node57004-phuwadon-noderest.proen.app.ruk-com.cloud:11799/books';
+
 // create a connection to the database
-const sequelize = new Sequelize('database', 'username', 'password', {
-    host: 'localhost',
-    dialect: 'sqlite',
-    storage: './Database/SQBooks.sqlite'
-});
+const sequelize = new Sequelize(dbUrl);
 
 // define the Book model
 const Book = sequelize.define('book', {
